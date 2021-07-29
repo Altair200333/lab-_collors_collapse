@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class MoveCamera : MonoBehaviour
 {
@@ -35,9 +36,13 @@ public class MoveCamera : MonoBehaviour
         foreach (var bind in moves)
         {
             if(Input.GetKey(bind.Key))
-                move(bind.Value*moveSpeed*Time.deltaTime);
+            {
+                move(bind.Value * moveSpeed * Time.deltaTime);
+            }
         }
-
-        Look();
+        if(Input.GetMouseButton(0))
+        {
+            Look();
+        }
     }
 }

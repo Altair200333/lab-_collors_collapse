@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: labCollapse
+  m_Name: labCollapse_b 1
   m_Shader: {fileID: -6465566751694194690, guid: c1b03679451ba244b83eb1769ddb355b, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -106,8 +106,8 @@ Material:
     - Vector1_59c8d3b54aad4e9395199429387687d0: 1
     - Vector1_8ac24a9033f54041b8735dcfe46b4456: 0.02
     - Vector1_9ab074509d914d1c8d77bc57c455434e: 903.3
-    - Vector1_c25499d827e64066985a3b83f4bd143a: 1
-    - Vector1_cb62aaf5eec440faa7f3b1d1beeba018: 0
+    - Vector1_c25499d827e64066985a3b83f4bd143a: 0
+    - Vector1_cb62aaf5eec440faa7f3b1d1beeba018: 3
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
