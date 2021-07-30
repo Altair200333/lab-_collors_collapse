@@ -40,7 +40,7 @@ public class MoveCamera : MonoBehaviour
                 move(bind.Value * moveSpeed * Time.deltaTime);
             }
         }
-        if(Input.GetMouseButton(0))
+        if(Input.GetMouseButton(1))
         {
             Look();
         }
