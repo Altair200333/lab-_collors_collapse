@@ -16,6 +16,8 @@ public class conrolFilters : MonoBehaviour
     public Renderer preview;
     private RenderTexture tex;
     private int size = 1024;
+
+    public ParticleSystem system;
     void Start()
     {
         tex = new RenderTexture(size, size, 16, RenderTextureFormat.ARGB32);
@@ -36,6 +38,8 @@ public class conrolFilters : MonoBehaviour
         }
 
         toTexture2D(tex, buffer);
+
+        StartCoroutine("plot");
     }
 
     void Update()
@@ -77,5 +81,24 @@ public class conrolFilters : MonoBehaviour
         GL.invertCulling = false;
         GL.PopMatrix();
     }
-    
+
+
+    IEnumerator plot()
+    {
+        var data = buffer.GetRawTextureData<Color32>();
+        var cloud = new ParticleSystem.Particle[data.Length];
+
+        for (int i = 0; i < data.Length; ++i)
+        {
+            var color = data[i];
+            var lab = ColorsCommon.RGBToLab(new Vector4(color.r / 255.0f, color.g / 255.0f, color.b / 255.0f, 1.0f));
+            cloud[i].position = new Vector3(lab[1], lab[2], 0);
+            cloud[i].color = color;
+            cloud[i].size = 0.1f;
+            
+        }
+        system.SetParticles(cloud, cloud.Length);
+        
+        yield return null;
+    }
 }
